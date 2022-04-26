@@ -30,7 +30,7 @@ router.get("/all", async (req, res) => {
       .exec();
     const totalPages = Math.ceil((await petCenterSchema.find().countDocuments()) / size);
 
-    return res.status(200).send(petcenters,totalPages);
+    return res.status(200).send({petcenters,totalPages});
   } catch (err) {
     return res.status(400).send(err.message);
   }
